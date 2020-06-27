@@ -3,11 +3,20 @@ package pucp.telecom.moviles.lab3;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import pucp.telecom.moviles.lab3.ViewModels.MedicionViewModel;
+import android.view.View;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 
 public class MainActivity extends AppCompatActivity {
 
