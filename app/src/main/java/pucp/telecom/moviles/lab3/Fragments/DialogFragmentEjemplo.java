@@ -25,4 +25,11 @@ public class DialogFragmentEjemplo extends androidx.fragment.app.DialogFragment 
                 });
         return builder.create();
     }
+    public static DialogFragmentEjemplo newInstance() {
+        DialogFragmentEjemplo fragment = new DialogFragmentEjemplo();
+
+
+        return fragment;
+    }
+
 }
