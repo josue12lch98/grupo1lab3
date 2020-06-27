@@ -22,6 +22,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.gson.Gson;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,7 +93,13 @@ public class GuardarActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> parametros= new HashMap<>();
                      Gson gson = new Gson();
-                    parametros.put("data",gson.toJson(grabacion));
+
+
+                SimpleDateFormat timeStampFormat = new SimpleDateFormat("yyyyMMdd_HH");
+                Date myDate = new Date();
+                String filename = timeStampFormat.format(myDate);
+                String nombreJson = "medicion_"+filename;
+                    parametros.put("nombreJson",gson.toJson(grabacion));
 
                 return super.getParams();
             }
@@ -99,6 +108,7 @@ public class GuardarActivity extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> cabeceras  = new HashMap<>();
                 cabeceras.put("X-Api-Token","y6yeJmYwyRBw2E7bU2iJB8d6fFPv6a");
+                cabeceras.put("Content-Type","application/json");
                 return cabeceras;
             }
         };
