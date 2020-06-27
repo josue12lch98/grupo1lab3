@@ -21,9 +21,7 @@ public class DialogFragmentEjemplo extends androidx.fragment.app.DialogFragment 
                     }
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                    }
+                    public void onClick(DialogInterface dialog, int id) {}
                 });
         return builder.create();
     }
